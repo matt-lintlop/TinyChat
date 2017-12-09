@@ -91,7 +91,6 @@
         return NO;
     }
     else {
-        NSLog(@"Write: %ld Bytes: %s", n, data.bytes);
         ssize_t n = write(self.sockfd, "\n", 1);
         return n > 0;
     }
@@ -116,20 +115,12 @@
     int bytes_available;
     ioctl(self.sockfd,FIONREAD,&bytes_available);
 
-    NSLog(@"Chat Server Bytes Available: %d", bytes_available);
-
     if (bytes_available > 0) {
-        NSLog(@"Chat Server Bytes Available: %d", bytes_available);
-        
         UInt8 buffer[1024*4];
         UInt8* bufferValues = buffer;
         
         ssize_t n = read(self.sockfd, buffer, 255);
-        if (n < 0) {
-            NSLog(@"ERROR reading from socket");
-        }
-        else {
-            printf("Data From Chat Server: %s\n", buffer);
+        if (n > 0) {
             if ([[NSThread currentThread] isMainThread]) {
                 [self.delegate processDataFromChatServer:buffer length:(int)n];
             }
