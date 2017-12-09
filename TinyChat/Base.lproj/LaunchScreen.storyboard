@@ -64,7 +64,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sz-7I-XFD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ojn-wl-cdC"/>
+                    <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
