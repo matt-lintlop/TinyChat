@@ -13,7 +13,7 @@ protocol TinyChatRoomDelegateProtocol {
     func showOfflineMessageSentAlert();                         // Show Alert When User Sends Message Offfline
 }
 
-class TinyChatRoom : NSObject {
+class TinyChatRoom : NSObject, TinyChatClientDelegate {
     var delegate: TinyChatRoomDelegateProtocol?                 // Chat Room Delegate
     var chatServerReachability: Reachability                    // Chat Server Reachability
     var outgoingMessages: [Message]?                            // Outgoing Messages
@@ -32,6 +32,8 @@ class TinyChatRoom : NSObject {
         self.chatClient = TinyChatClient()
         
         super.init()
+
+        self.chatClient?.delegate = self
 
         // load outgoing messages that are persisted on disk
         self.loadOutgoingMessages()
@@ -269,12 +271,13 @@ class TinyChatRoom : NSObject {
         chatClient?.disconnect()
     }
     
-    private func processDataFromChatServer(buffer: UnsafeMutablePointer<UInt8>,
-                                           length: Int) {
+    // MARK: TinyChatClientDelegate
+    
+    func processData(fromChatServer buffer: UnsafeMutablePointer<UInt8>!, length: Int32) {
         guard length > 0 else {
             return
         }
-        let data = Data(bytes: buffer, count: length)
+        let data = Data(bytes: buffer, count: Int(length))
         if let json = String(data: data, encoding: .utf8) {
             parseJSONFromServer(json)
         }
