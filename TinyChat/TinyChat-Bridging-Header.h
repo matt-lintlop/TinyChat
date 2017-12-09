@@ -3,4 +3,4 @@
 //
 
 #import "Reachability.h"
-#import "ChatClient.h"
+#import "TinyChatClient.h"

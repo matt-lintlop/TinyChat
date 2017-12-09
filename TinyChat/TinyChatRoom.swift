@@ -1,6 +1,6 @@
 //
-//  ChatRoom.swift
-//  ChatRoom
+//  TinyChat.swift
+//  TinyChat
 //
 //  Created by Matthew Lintlop on 12/6/17.
 //  Copyright © 2017 Matthew Lintlop. All rights reserved.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-protocol ChatRoomDelegateProtocol {
+protocol TinyChatRoomDelegateProtocol {
     func showMessage(_ message: String);                        // Show A Message To The User
     func showOfflineMessageSentAlert();                         // Show Alert When User Sends Message Offfline
 }
 
-class ChatRoom : NSObject {
-    var delegate: ChatRoomDelegateProtocol?                     // Chat Room Delegate
+class TinyChatRoom : NSObject {
+    var delegate: TinyChatRoomDelegateProtocol?                     // Chat Room Delegate
     var chatServerReachability: Reachability                    // Chat Server Reachability
     var outgoingMessages: [Message]?                            // Outgoing Messages
     var lastTimeConnected: Int?                                 // Time Of Last Connection To The Chat Server
     var chatServerReachableTimer: Timer?                        // Timer Used To Check For Reachability To Chat Server
-    var chatClient: ChatClient?                                 // Chat Client
+    var chatClient: TinyChatClient?                                 // Chat Client
     
     let chatServerIP = "52.91.109.76"                           // Chat Server IP Address
     let chatServerPort: UInt32 = 1234                           // Chat Server Port
@@ -29,7 +29,7 @@ class ChatRoom : NSObject {
     override init() {
         self.delegate = nil
         self.chatServerReachability = Reachability(hostName: chatServerIP)
-        self.chatClient = ChatClient()
+        self.chatClient = TinyChatClient()
         
         super.init()
 

@@ -1,6 +1,6 @@
 //
 //  Message.swift
-//  ChatRoom
+//  TinyChat
 //
 //  Created by Matthew Lintlop on 12/6/17.
 //  Copyright © 2017 Matthew Lintlop. All rights reserved.

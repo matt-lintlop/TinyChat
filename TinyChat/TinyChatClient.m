@@ -1,20 +1,20 @@
 //
-//  ChatClient.m
-//  ChatRoom
+//  TinyChatClient.m
+//  TinyChat
 //
 //  Created by Matthew Lintlop on 12/8/17.
 //  Copyright © 2017 Matthew Lintlop. All rights reserved.
 //
 
-#import "ChatClient.h"
-#include <sys/socket.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <string.h>
+#import "TinyChatClient.h"
+#import <sys/socket.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <netdb.h>
+#import <netinet/in.h>
+#import <string.h>
 
-@implementation ChatClient
+@implementation TinyChatClient
 
 - (instancetype)init {
     self = [super init];

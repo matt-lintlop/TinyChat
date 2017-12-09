@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ChatRoom
+//  TinyChat
 //
 //  Created by Matthew Lintlop on 12/6/17.
 //  Copyright © 2017 Matthew Lintlop. All rights reserved.
@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    weak var chatRoom: ChatRoom?
+    weak var chatRoom: TinyChatRoom?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
