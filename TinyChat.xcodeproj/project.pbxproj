@@ -10,7 +10,6 @@
 		342414711FDB809B004335D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3424146F1FDB809B004335D2 /* Main.storyboard */; };
 		342414731FDB809B004335D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342414721FDB809B004335D2 /* Assets.xcassets */; };
 		342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342414741FDB809B004335D2 /* LaunchScreen.storyboard */; };
-		342414881FDB80F6004335D2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3424147E1FDB80F4004335D2 /* Info.plist */; };
 		342414891FDB80F6004335D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3424147F1FDB80F4004335D2 /* Message.swift */; };
 		3424148A1FDB80F6004335D2 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414801FDB80F5004335D2 /* ChatRoom.swift */; };
 		3424148B1FDB80F6004335D2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414821FDB80F5004335D2 /* Utility.swift */; };
@@ -27,7 +26,6 @@
 		342414721FDB809B004335D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		342414751FDB809B004335D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342414771FDB809B004335D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3424147E1FDB80F4004335D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Desktop/TinyChat/TinyChat/Info.plist; sourceTree = "<group>"; };
 		3424147F1FDB80F4004335D2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		342414801FDB80F5004335D2 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		342414811FDB80F5004335D2 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TinyChat-Bridging-Header.h"; path = "../../../../Desktop/TinyChat/TinyChat/TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -39,7 +37,6 @@
 		342414871FDB80F6004335D2 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		342414901FDB80FF004335D2 /* ChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClient.h; sourceTree = "<group>"; };
 		342414911FDB80FF004335D2 /* ChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatClient.m; sourceTree = "<group>"; };
-		342414931FDB82E3004335D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Desktop/TinyChat/TinyChat/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +73,9 @@
 				342414801FDB80F5004335D2 /* ChatRoom.swift */,
 				342414841FDB80F5004335D2 /* ChatRoomViewController.swift */,
 				342414901FDB80FF004335D2 /* ChatClient.h */,
+				342414771FDB809B004335D2 /* Info.plist */,
 				342414911FDB80FF004335D2 /* ChatClient.m */,
-				342414931FDB82E3004335D2 /* Info.plist */,
 				342414871FDB80F6004335D2 /* History.swift */,
-				3424147E1FDB80F4004335D2 /* Info.plist */,
 				3424147F1FDB80F4004335D2 /* Message.swift */,
 				342414851FDB80F5004335D2 /* Reachability.h */,
 				342414861FDB80F6004335D2 /* Reachability.m */,
@@ -88,7 +84,6 @@
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
 				342414721FDB809B004335D2 /* Assets.xcassets */,
 				342414741FDB809B004335D2 /* LaunchScreen.storyboard */,
-				342414771FDB809B004335D2 /* Info.plist */,
 			);
 			path = TinyChat;
 			sourceTree = "<group>";
@@ -153,7 +148,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				342414881FDB80F6004335D2 /* Info.plist in Resources */,
 				342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */,
 				342414731FDB809B004335D2 /* Assets.xcassets in Resources */,
 				342414711FDB809B004335D2 /* Main.storyboard in Resources */,
