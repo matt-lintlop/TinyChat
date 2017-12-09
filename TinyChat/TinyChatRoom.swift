@@ -94,10 +94,13 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
                     let data = jsonFromChatServer.data(using: .utf8)
                     let message = try JSONDecoder().decode(Message.self, from: data!)
                     delegate?.showMessage(message.msg)
-                }
+                    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                    print("Success Parsing Message JSON: JSON = \(jsonFromChatServer)")
+             }
                 catch {
-                    print("Error Parsing Message JSON: ERROR = \(error.localizedDescription)")
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                     print("Error Parsing Message JSON: JSON = \(jsonFromChatServer)")
+                    print("Error Parsing Message JSON: ERROR = \(error.localizedDescription)")
                 }
                 jsonFromChatServer = ""
             }
