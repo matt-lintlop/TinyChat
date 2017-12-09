@@ -115,7 +115,18 @@
     }
     int bytes_available;
     ioctl(self.sockfd,FIONREAD,&bytes_available);
+    NSLog(@"Chat Server Bytes Available: %d", bytes_available);
     
+}
+
+- (void)suspend {
+    [self performSelectorInBackground:(@selector(checkForDataFromChatServer)) withObject:nil];
+    [self.readDataTimer invalidate];
+    self.readDataTimer = nil;
+}
+
+- (void)resume {
+    self.readDataTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkForDataFromChatServer) userInfo:nil repeats:YES];
 }
 
 @end

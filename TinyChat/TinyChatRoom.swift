@@ -302,12 +302,14 @@ class TinyChatRoom : NSObject {
     
     // supend periodic chat room tasks
     func suspend() {
+        chatClient?.suspend()
         chatServerReachableTimer?.invalidate()
         chatServerReachableTimer = nil
     }
     
     // resume periodic chat room tasks
-    func resume() {        
+    func resume() {
+        chatClient?.resume()
         chatServerReachableTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(testChatServerReachability), userInfo: nil, repeats: true)
         chatServerReachableTimer?.fire()
     }

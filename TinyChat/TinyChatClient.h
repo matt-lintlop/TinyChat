@@ -19,7 +19,11 @@
 
 - (void)checkForDataFromChatServer;
 
+- (void)suspend;
+- (void)resume;
+
 @property (nonatomic) int sockfd;
 @property (nonatomic) BOOL connected;
+@property (nonatomic, strong) NSTimer *readDataTimer;
 
 @end
