@@ -20,7 +20,8 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     var lastTimeConnected: Int?                                 // Time Of Last Connection To The Chat Server
     var chatServerReachableTimer: Timer?                        // Timer Used To Check For Reachability To Chat Server
     var chatClient: TinyChatClient?                             // Chat Client
-    
+    var jsonFromChatServer: String                              // Current JSON From Chat Server
+
     let chatServerIP = "52.91.109.76"                           // Chat Server IP Address
     let chatServerPort: UInt32 = 1234                           // Chat Server Port
     let outgoingMessagesDataFileName = "OutgoingMessages.json"  // Outgoing Message Data File
@@ -30,6 +31,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         self.delegate = nil
         self.chatServerReachability = Reachability(hostName: chatServerIP)
         self.chatClient = TinyChatClient()
+        self.jsonFromChatServer = ""
         
         super.init()
 
@@ -80,25 +82,24 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         print("*****************************************************")
 
         let formattedJSON = json.replacingOccurrences(of: "'", with: "\"")
-        var currenJSONItem: String = ""
         var index = 0;
         for char in formattedJSON {
             index += 1;
             if char == "\n" {
                 continue
             }
-            currenJSONItem += String(char)
+            jsonFromChatServer += String(char)
             if char == "}" {
                 
                 // Decode the current line of JSON
-                let data = currenJSONItem.data(using: .utf8)
+                let data = jsonFromChatServer.data(using: .utf8)
                 if let message = try? JSONDecoder().decode(Message.self, from: data!) {
                     delegate?.showMessage(message.msg)
                 }
                 else {
-                    print("Error Parsing Message JSON: json = \(currenJSONItem)")
+                    print("Error Parsing Message JSON: json = \(self.jsonFromChatServer)")
                 }
-                currenJSONItem = ""
+                jsonFromChatServer = ""
             }
         }
     }

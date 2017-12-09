@@ -29,6 +29,8 @@
     struct hostent *server;
     struct sockaddr_in serv_addr;
     
+    // TODO: Show Network Indicator
+    
     // Create a socket point
     self.sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (self.sockfd < 0) {
@@ -56,6 +58,9 @@
         self.connected = YES;
         NSLog(@"Connected to the chat server");
     }
+    
+    // TODO: Hide Network Indicator
+
 }
 
 - (void)disconnect {
