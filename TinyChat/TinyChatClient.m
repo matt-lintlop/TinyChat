@@ -115,8 +115,32 @@
     }
     int bytes_available;
     ioctl(self.sockfd,FIONREAD,&bytes_available);
+
     NSLog(@"Chat Server Bytes Available: %d", bytes_available);
-}
+
+    if (bytes_available > 0) {
+        NSLog(@"Chat Server Bytes Available: %d", bytes_available);
+        
+        UInt8 buffer[1024*4];
+        UInt8* bufferValues = buffer;
+        
+        ssize_t n = read(self.sockfd, buffer, 255);
+        if (n < 0) {
+            NSLog(@"ERROR reading from socket");
+        }
+        else {
+            printf("Data From Chat Server: %s\n", buffer);
+            if ([[NSThread currentThread] isMainThread]) {
+                [self.delegate processDataFromChatServer:buffer length:(int)n];
+            }
+            else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate processDataFromChatServer:bufferValues length:(int)n];
+                });
+            }
+        }
+    }
+ }
 
 - (void)suspend {
     [self performSelectorInBackground:(@selector(checkForDataFromChatServer)) withObject:nil];

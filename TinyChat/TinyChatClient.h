@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <netinet/in.h>
 
+@protocol TinyChatClientDelegate
+-(void)processDataFromChatServer:(UInt8*)buffer length:(int)length;
+@end
+
 @interface TinyChatClient : NSObject
 
 - (BOOL)connectToChatServer;
@@ -25,5 +29,6 @@
 @property (nonatomic) int sockfd;
 @property (nonatomic) BOOL connected;
 @property (nonatomic, strong) NSTimer *readDataTimer;
+@property (nonatomic, weak) id<TinyChatClientDelegate> delegate;
 
 @end
