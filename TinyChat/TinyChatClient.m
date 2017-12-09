@@ -116,7 +116,6 @@
     int bytes_available;
     ioctl(self.sockfd,FIONREAD,&bytes_available);
     NSLog(@"Chat Server Bytes Available: %d", bytes_available);
-    
 }
 
 - (void)suspend {
