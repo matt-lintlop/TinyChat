@@ -17,7 +17,9 @@
 - (BOOL)writeData:(NSData*)data length:(NSUInteger)length;
 - (int)readData:(char*)buffer length:(NSUInteger)maxLength;
 
-@property (nonatomic) int sockfd, newsockfd;
+- (void)checkForDataFromChatServer;
+
+@property (nonatomic) int sockfd;
 @property (nonatomic) BOOL connected;
 
 @end

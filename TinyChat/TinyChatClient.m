@@ -7,6 +7,7 @@
 //
 
 #import "TinyChatClient.h"
+#import <sys/ioctl.h>
 #import <sys/socket.h>
 #import <stdio.h>
 #import <stdlib.h>
@@ -106,7 +107,15 @@
         perror("ERROR reading from socket");
     }
     return (int)bytesRead;
+}
 
+- (void)checkForDataFromChatServer {
+    if (!self.connected) {
+        return;
+    }
+    int bytes_available;
+    ioctl(self.sockfd,FIONREAD,&bytes_available);
+    
 }
 
 @end
