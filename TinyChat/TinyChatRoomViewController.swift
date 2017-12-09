@@ -17,6 +17,7 @@
         @IBOutlet weak var sendButton: UIButton!
         
         var chatRoom: TinyChatRoom!
+        var keyboardVisible = false
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -32,8 +33,7 @@
             
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.handleTextFieldChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
-
+            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardDidChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
             enableSendButton()
      
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -73,8 +73,27 @@
         }
 
         // MARK: Notifications
-        
-        @objc func keyboardWillShow(notification: NSNotification) {
+        @objc func keyboardDidChangeFrame(notification: NSNotification) {
+            guard self.keyboardVisible else {
+                return
+            }
+            guard let endSize = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]) as? NSValue)?.cgRectValue else {
+                return
+            }
+            guard let startSize = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]) as? NSValue)?.cgRectValue else {
+                return
+            }
+
+            UIView.animate(withDuration: 0.5) {
+                self.messageLabelBottomConstraint.constant = endSize.height + 10
+                self.messageLabelRightConstraint.constant = CGFloat(16)
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+            
+        }
+
+        @objc func keyboard(notification: NSNotification) {
             guard let keyboardSize = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]) as? NSValue)?.cgRectValue else {
                 return
             }
@@ -85,10 +104,24 @@
                 self.view.setNeedsLayout()
                 self.view.layoutIfNeeded()
             }
-            
         }
-        
+     
+        @objc func keyboardWillShow(notification: NSNotification) {
+            guard let keyboardSize = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]) as? NSValue)?.cgRectValue else {
+            return
+            }
+            
+            self.keyboardVisible = true
+            UIView.animate(withDuration: 0.5) {
+                self.messageLabelBottomConstraint.constant = keyboardSize.size.height + 10
+                self.messageLabelRightConstraint.constant = CGFloat(16)
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+        }
+
         @objc func keyboardWillHide(notification: NSNotification) {
+            self.keyboardVisible = false
             UIView.animate(withDuration: 0.5) {
                 self.messageLabelBottomConstraint.constant = 10
                 self.messageLabelRightConstraint.constant = CGFloat(90)
@@ -97,6 +130,16 @@
             }
         }
         
+        
+        @objc func key(notification: NSNotification) {
+            UIView.animate(withDuration: 0.5) {
+                self.messageLabelBottomConstraint.constant = 10
+                self.messageLabelRightConstraint.constant = CGFloat(90)
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+        }
+
         @objc func handleTextFieldChanged(notification: NSNotification) {
             enableSendButton()
         }
