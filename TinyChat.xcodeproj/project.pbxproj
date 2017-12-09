@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3424146C1FDB809B004335D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3424146B1FDB809B004335D2 /* AppDelegate.swift */; };
-		3424146E1FDB809B004335D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3424146D1FDB809B004335D2 /* ViewController.swift */; };
 		342414711FDB809B004335D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3424146F1FDB809B004335D2 /* Main.storyboard */; };
 		342414731FDB809B004335D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342414721FDB809B004335D2 /* Assets.xcassets */; };
 		342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342414741FDB809B004335D2 /* LaunchScreen.storyboard */; };
+		342414881FDB80F6004335D2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3424147E1FDB80F4004335D2 /* Info.plist */; };
+		342414891FDB80F6004335D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3424147F1FDB80F4004335D2 /* Message.swift */; };
+		3424148A1FDB80F6004335D2 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414801FDB80F5004335D2 /* ChatRoom.swift */; };
+		3424148B1FDB80F6004335D2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414821FDB80F5004335D2 /* Utility.swift */; };
+		3424148C1FDB80F6004335D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414831FDB80F5004335D2 /* AppDelegate.swift */; };
+		3424148D1FDB80F6004335D2 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414841FDB80F5004335D2 /* ChatRoomViewController.swift */; };
+		3424148E1FDB80F6004335D2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 342414861FDB80F6004335D2 /* Reachability.m */; };
+		3424148F1FDB80F6004335D2 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414871FDB80F6004335D2 /* History.swift */; };
+		342414921FDB80FF004335D2 /* ChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 342414911FDB80FF004335D2 /* ChatClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		342414681FDB809B004335D2 /* TinyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3424146B1FDB809B004335D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3424146D1FDB809B004335D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		342414701FDB809B004335D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		342414721FDB809B004335D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		342414751FDB809B004335D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342414771FDB809B004335D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3424147E1FDB80F4004335D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Desktop/TinyChat/TinyChat/Info.plist; sourceTree = "<group>"; };
+		3424147F1FDB80F4004335D2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		342414801FDB80F5004335D2 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		342414811FDB80F5004335D2 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TinyChat-Bridging-Header.h"; path = "../../../../Desktop/TinyChat/TinyChat/TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		342414821FDB80F5004335D2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		342414831FDB80F5004335D2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		342414841FDB80F5004335D2 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		342414851FDB80F5004335D2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		342414861FDB80F6004335D2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		342414871FDB80F6004335D2 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		342414901FDB80FF004335D2 /* ChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClient.h; sourceTree = "<group>"; };
+		342414911FDB80FF004335D2 /* ChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatClient.m; sourceTree = "<group>"; };
+		342414931FDB82E3004335D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../../Desktop/TinyChat/TinyChat/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +72,19 @@
 		3424146A1FDB809B004335D2 /* TinyChat */ = {
 			isa = PBXGroup;
 			children = (
-				3424146B1FDB809B004335D2 /* AppDelegate.swift */,
-				3424146D1FDB809B004335D2 /* ViewController.swift */,
+				342414831FDB80F5004335D2 /* AppDelegate.swift */,
+				342414801FDB80F5004335D2 /* ChatRoom.swift */,
+				342414841FDB80F5004335D2 /* ChatRoomViewController.swift */,
+				342414901FDB80FF004335D2 /* ChatClient.h */,
+				342414911FDB80FF004335D2 /* ChatClient.m */,
+				342414931FDB82E3004335D2 /* Info.plist */,
+				342414871FDB80F6004335D2 /* History.swift */,
+				3424147E1FDB80F4004335D2 /* Info.plist */,
+				3424147F1FDB80F4004335D2 /* Message.swift */,
+				342414851FDB80F5004335D2 /* Reachability.h */,
+				342414861FDB80F6004335D2 /* Reachability.m */,
+				342414811FDB80F5004335D2 /* TinyChat-Bridging-Header.h */,
+				342414821FDB80F5004335D2 /* Utility.swift */,
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
 				342414721FDB809B004335D2 /* Assets.xcassets */,
 				342414741FDB809B004335D2 /* LaunchScreen.storyboard */,
@@ -96,6 +125,7 @@
 				TargetAttributes = {
 					342414671FDB809B004335D2 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342414881FDB80F6004335D2 /* Info.plist in Resources */,
 				342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */,
 				342414731FDB809B004335D2 /* Assets.xcassets in Resources */,
 				342414711FDB809B004335D2 /* Main.storyboard in Resources */,
@@ -136,8 +167,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3424146E1FDB809B004335D2 /* ViewController.swift in Sources */,
-				3424146C1FDB809B004335D2 /* AppDelegate.swift in Sources */,
+				3424148C1FDB80F6004335D2 /* AppDelegate.swift in Sources */,
+				3424148A1FDB80F6004335D2 /* ChatRoom.swift in Sources */,
+				3424148F1FDB80F6004335D2 /* History.swift in Sources */,
+				3424148D1FDB80F6004335D2 /* ChatRoomViewController.swift in Sources */,
+				342414891FDB80F6004335D2 /* Message.swift in Sources */,
+				3424148E1FDB80F6004335D2 /* Reachability.m in Sources */,
+				342414921FDB80FF004335D2 /* ChatClient.m in Sources */,
+				3424148B1FDB80F6004335D2 /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +311,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US5DTPYQ6L;
 				INFOPLIST_FILE = TinyChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.opengarden.TinyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TinyChat/TinyChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,12 +329,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US5DTPYQ6L;
 				INFOPLIST_FILE = TinyChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.opengarden.TinyChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TinyChat/TinyChat-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

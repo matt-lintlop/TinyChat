@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TinyChat
+//  ChatRoom
 //
-//  Created by Matthew Lintlop on 12/8/17.
+//  Created by Matthew Lintlop on 12/6/17.
 //  Copyright © 2017 Matthew Lintlop. All rights reserved.
 //
 
@@ -12,10 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    weak var chatRoom: ChatRoom?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        UINavigationBar.appearance().barTintColor = UIColor.blue
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+
         return true
     }
 
@@ -25,12 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // suspend chat room periodic tasks
+        chatRoom?.suspend()
+        chatRoom?.teardownNetworkCommunication()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        // resume chat room periodic tasks
+        chatRoom?.resume()
+        chatRoom?.setupNetworkCommunication()
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
