@@ -74,6 +74,11 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     
     // Parse JSON from the server 1 object at a time
     func parseJSONFromServer(_ json: String) {
+        
+        print("*****************************************************")
+        print("JSON From Server = \(json)")
+        print("*****************************************************")
+
         let formattedJSON = json.replacingOccurrences(of: "'", with: "\"")
         var currenJSONItem: String = ""
         var index = 0;
