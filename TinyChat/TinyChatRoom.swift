@@ -91,7 +91,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
                     delegate?.showMessage(message.msg)
                 }
                 else {
-                    print("Error Parsing Message JSON")
+                    print("Error Parsing Message JSON: json = \(currenJSONItem)")
                 }
                 currenJSONItem = ""
             }
