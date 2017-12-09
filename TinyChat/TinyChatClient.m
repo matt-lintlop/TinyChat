@@ -25,7 +25,7 @@
     return self;
 }
 
-- (BOOL)connectToChatServer {
+- (void)connectToChatServer {
     struct hostent *server;
     struct sockaddr_in serv_addr;
     
@@ -51,12 +51,10 @@
     if (connect(self.sockfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
         NSLog(@"ERROR connecting");
         self.connected = NO;
-        return NO;
     }
     else {
         self.connected = YES;
         NSLog(@"Connected to the chat server");
-        return YES;
     }
 }
 

@@ -120,6 +120,8 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     
     @objc func reachabilityChanged(_ notification: NSNotification) {
         let reachable = isChatServerReachable()
+        chatClient?.connected = reachable
+        
         if reachable {
             downloadMessagesSinceLastTimeConnected();     // download all messages since last time connected
             sendOutgoingMessages()                        // send outgoing messages currently persisted to disk

@@ -15,7 +15,7 @@
 
 @interface TinyChatClient : NSObject
 
-- (BOOL)connectToChatServer;
+- (void)connectToChatServer;
 - (void)disconnect;
 
 - (BOOL)writeData:(NSData*)data length:(NSUInteger)length;
