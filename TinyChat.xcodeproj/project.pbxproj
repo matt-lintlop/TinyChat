@@ -28,7 +28,6 @@
 		342414771FDB809B004335D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3424147F1FDB80F4004335D2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		342414801FDB80F5004335D2 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
-		342414811FDB80F5004335D2 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TinyChat-Bridging-Header.h"; path = "../../../../Desktop/TinyChat/TinyChat/TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		342414821FDB80F5004335D2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		342414831FDB80F5004335D2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		342414841FDB80F5004335D2 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		342414871FDB80F6004335D2 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		342414901FDB80FF004335D2 /* ChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClient.h; sourceTree = "<group>"; };
 		342414911FDB80FF004335D2 /* ChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatClient.m; sourceTree = "<group>"; };
+		34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 				3424147F1FDB80F4004335D2 /* Message.swift */,
 				342414851FDB80F5004335D2 /* Reachability.h */,
 				342414861FDB80F6004335D2 /* Reachability.m */,
-				342414811FDB80F5004335D2 /* TinyChat-Bridging-Header.h */,
 				342414821FDB80F5004335D2 /* Utility.swift */,
+				34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */,
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
 				342414721FDB809B004335D2 /* Assets.xcassets */,
 				342414741FDB809B004335D2 /* LaunchScreen.storyboard */,
