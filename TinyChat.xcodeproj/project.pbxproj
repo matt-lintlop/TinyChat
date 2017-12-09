@@ -82,6 +82,7 @@
 				342414861FDB80F6004335D2 /* Reachability.m */,
 				342414771FDB809B004335D2 /* Info.plist */,
 				342414821FDB80F5004335D2 /* Utility.swift */,
+				34DD64F01FDC0B3600334E43 /* Main.storyboard */,
 				34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */,
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
 				34EC1B8F1FDBC00400CB9DDA /* icon.png */,
@@ -193,6 +194,13 @@
 				342414751FDB809B004335D2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		34DD64F01FDC0B3600334E43 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
