@@ -71,7 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tiny Chat" largeTitleDisplayMode="always" id="S6R-Z9-eXI">
-                        <barButtonItem key="rightBarButtonItem" title="Erase" id="XdN-VM-W0p">
+                        <barButtonItem key="rightBarButtonItem" image="eraser_icon.png" id="XdN-VM-W0p">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="erasePressed:" destination="BYZ-38-t0r" id="LY1-ZM-Fvc"/>
@@ -113,4 +113,7 @@
             <point key="canvasLocation" x="-430" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eraser_icon.png" width="30" height="30"/>
+    </resources>
 </document>
