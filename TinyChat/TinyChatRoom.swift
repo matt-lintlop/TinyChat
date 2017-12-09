@@ -14,12 +14,12 @@ protocol TinyChatRoomDelegateProtocol {
 }
 
 class TinyChatRoom : NSObject {
-    var delegate: TinyChatRoomDelegateProtocol?                     // Chat Room Delegate
+    var delegate: TinyChatRoomDelegateProtocol?                 // Chat Room Delegate
     var chatServerReachability: Reachability                    // Chat Server Reachability
     var outgoingMessages: [Message]?                            // Outgoing Messages
     var lastTimeConnected: Int?                                 // Time Of Last Connection To The Chat Server
     var chatServerReachableTimer: Timer?                        // Timer Used To Check For Reachability To Chat Server
-    var chatClient: TinyChatClient?                                 // Chat Client
+    var chatClient: TinyChatClient?                             // Chat Client
     
     let chatServerIP = "52.91.109.76"                           // Chat Server IP Address
     let chatServerPort: UInt32 = 1234                           // Chat Server Port
@@ -47,39 +47,10 @@ class TinyChatRoom : NSObject {
     
     func setupNetworkCommunication() {
         chatClient?.connectToChatServer ()
-        
-//        var readStream: Unmanaged<CFReadStream>?
-//        var writeStream: Unmanaged<CFWriteStream>?
-//
-//        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault,
-//                                           chatServerIP as CFString,
-//                                           chatServerPort,
-//                                           &readStream,
-//                                           &writeStream)
-//
-//        inputStream = readStream!.takeRetainedValue()
-//        outputStream = writeStream!.takeRetainedValue()
-//
-//        inputStream.delegate = self
-//        outputStream.delegate = self
-//
-//        inputStream.schedule(in: .main, forMode: .commonModes)
-//        outputStream.schedule(in: .main, forMode: .commonModes)
-//
-//        inputStream.open()
-//        outputStream.open()
     }
 
     func teardownNetworkCommunication() {
         chatClient?.disconnect()
-
-//        inputStream.remove(from: .main, forMode: .commonModes)
-//        inputStream.close()
-//        inputStream = nil
-//
-//        outputStream.remove(from: .main, forMode: .commonModes)
-//        outputStream.close()
-//        outputStream = nil
     }
     
     func getLastTimeConnected() {
