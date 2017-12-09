@@ -35,7 +35,8 @@
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardDidChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
             enableSendButton()
-     
+            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.handleTextFieldChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.chatRoom = chatRoom
         }
@@ -80,9 +81,6 @@
             guard let endSize = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]) as? NSValue)?.cgRectValue else {
                 return
             }
-            guard let startSize = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]) as? NSValue)?.cgRectValue else {
-                return
-            }
 
             UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = endSize.height + 10
@@ -90,7 +88,6 @@
                 self.view.setNeedsLayout()
                 self.view.layoutIfNeeded()
             }
-            
         }
 
         @objc func keyboard(notification: NSNotification) {
@@ -110,8 +107,8 @@
             guard let keyboardSize = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]) as? NSValue)?.cgRectValue else {
             return
             }
-            
             self.keyboardVisible = true
+            
             UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = keyboardSize.size.height + 10
                 self.messageLabelRightConstraint.constant = CGFloat(16)
