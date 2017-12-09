@@ -64,7 +64,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sz-7I-XFD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC"/>
+                    <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC">
+                        <barButtonItem key="rightBarButtonItem" title="Erase" id="0nf-2R-j5t">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

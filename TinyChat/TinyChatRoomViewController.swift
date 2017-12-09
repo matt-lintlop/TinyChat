@@ -55,6 +55,10 @@
             enableSendButton()
         }
         
+        @IBAction func erasePressed(_ sender: Any) {
+            messagesTextView.text = nil
+       }
+        
         func enableSendButton() {
             var enabled = false
             if let text = messageTextField.text {
