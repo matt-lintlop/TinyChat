@@ -84,7 +84,7 @@
                 return
             }
 
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = endSize.height + 10
                 self.messageLabelRightConstraint.constant = CGFloat(16)
                 self.view.setNeedsLayout()
@@ -98,7 +98,7 @@
                 return
             }
             
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = keyboardSize.size.height + 10
                 self.messageLabelRightConstraint.constant = CGFloat(16)
                 self.view.setNeedsLayout()
@@ -112,7 +112,7 @@
             }
             
             self.keyboardVisible = true
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = keyboardSize.size.height + 10
                 self.messageLabelRightConstraint.constant = CGFloat(16)
                 self.view.setNeedsLayout()
@@ -122,7 +122,7 @@
 
         @objc func keyboardWillHide(notification: NSNotification) {
             self.keyboardVisible = false
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = 10
                 self.messageLabelRightConstraint.constant = CGFloat(90)
                 self.view.setNeedsLayout()
@@ -132,7 +132,7 @@
         
         
         @objc func key(notification: NSNotification) {
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.25) {
                 self.messageLabelBottomConstraint.constant = 10
                 self.messageLabelRightConstraint.constant = CGFloat(90)
                 self.view.setNeedsLayout()
