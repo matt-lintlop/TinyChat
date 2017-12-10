@@ -235,22 +235,14 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         var sentMessageCount = 0;
         var failedMessageCount = 0;
 
-        print("Now Sending: \(outgoingMessages.count) Messages")
-
         DispatchQueue.global(qos: .background).async {
             var failedMessages: [Message] = []
-            
-            
-            
-            
-            for message in outgoingMessages {
+             for message in outgoingMessages {
                 if (!self.sendMessage(message)) {
-                    print("FAILED Sending Message: \(message.msg)")
                     failedMessages.append(message)
                     failedMessageCount += 1
                 }
                 else {
-                    print("SUCCESS! Sending Message: \(message.msg)")
                     sentMessageCount += 1
                 }
             }
