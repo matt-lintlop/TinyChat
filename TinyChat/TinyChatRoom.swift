@@ -121,7 +121,6 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         switch chatServerReachability.currentReachabilityStatus() {
             case ReachableViaWiFi,ReachableViaWWAN:
                 reachable = true
-                sendOutgoingMessages()
             case NotReachable:
                 reachable = false
             default:
@@ -180,7 +179,8 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     func sendMessage(_ message: Message) -> Bool {
         let encoder = JSONEncoder()
         do {
-            let data = try encoder.encode(message)
+            print("Now Sending Message: \(message.msg)")
+           let data = try encoder.encode(message)
             return chatClient!.write(data, length: UInt(data.count))
         } catch {
             print("Error Sending Message: \(error.localizedDescription)")
@@ -235,14 +235,22 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         var sentMessageCount = 0;
         var failedMessageCount = 0;
 
+        print("Now Sending: \(outgoingMessages.count) Messages")
+
         DispatchQueue.global(qos: .background).async {
             var failedMessages: [Message] = []
+            
+            
+            
+            
             for message in outgoingMessages {
                 if (!self.sendMessage(message)) {
+                    print("FAILED Sending Message: \(message.msg)")
                     failedMessages.append(message)
                     failedMessageCount += 1
                 }
                 else {
+                    print("SUCCESS! Sending Message: \(message.msg)")
                     sentMessageCount += 1
                 }
             }
