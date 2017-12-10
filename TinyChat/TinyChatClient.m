@@ -27,7 +27,7 @@
 
 - (void)connectToChatServer {
     struct hostent *server;
-    struct sockaddr_in serv_addr;
+    struct sockaddr_in serv_addr __attribute__((packed));;
     
     // TODO: Show Network Indicator
     
@@ -46,7 +46,7 @@
     
     bzero((char*) &serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
-    bcopy((char*)server->h_addr_list[0], (char*)&serv_addr.sin_addr.s_addr, server->h_length);
+    bcopy((struct in_addr*)server->h_addr_list, &serv_addr.sin_addr.s_addr, server->h_length);
     serv_addr.sin_port = htons(1234);
     
     // Now connect to the TCP Server
