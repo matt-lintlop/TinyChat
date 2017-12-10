@@ -23,30 +23,13 @@
             super.viewDidLoad()
             
             self.messagesTextView.contentInsetAdjustmentBehavior = .never
+            self.messagesTextView.text = "Hello\n"
             
-            chatRoom = TinyChatRoom()
-            chatRoom.delegate = self
-            chatRoom.setupNetworkCommunication()
-            chatRoom.startCheckingReachability()
-            if chatRoom.isChatServerReachable() {
-                
-//                let time = currentTime() - Int(1000 * 60 * 60 * 240)        // 240 hours = 10 days
-//                chatRoom.downloadMessagesSinceDate(time)                    // TESTING
-
-                chatRoom.downloadMessagesSinceLastTimeConnected()
-                
-                chatRoom.sendOutgoingMessages()
-           }
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardDidChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
-            enableSendButton()
-            NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.handleTextFieldChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
-
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.chatRoom = chatRoom
-        }
+            for i in 1...1500 {
+                self.messagesTextView.text!.append("Item \(i)\n")
+                scheduleScrollTextViewToBottom()
+            }
+         }
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
@@ -63,7 +46,7 @@
         }
         
         @IBAction func erasePressed(_ sender: Any) {
-            messagesTextView.text = nil
+            scrollTextViewToBottom()
        }
         
         func enableSendButton() {
