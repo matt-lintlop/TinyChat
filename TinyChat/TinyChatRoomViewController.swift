@@ -22,16 +22,18 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            self.messagesTextView.contentInsetAdjustmentBehavior = .automatic
+            
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
             chatRoom.setupNetworkCommunication()
             chatRoom.startCheckingReachability()
             if chatRoom.isChatServerReachable() {
                 
-                let time = currentTime() - Int(1000 * 60 * 60 * 240)        // 240 hours = 10 days
-                chatRoom.downloadMessagesSinceDate(time)                    // TESTING
-                
- //               chatRoom.downloadMessagesSinceLastTimeConnected()
+//                let time = currentTime() - Int(1000 * 60 * 60 * 240)        // 240 hours = 10 days
+//                chatRoom.downloadMessagesSinceDate(time)                    // TESTING
+
+                chatRoom.downloadMessagesSinceLastTimeConnected()
                 
                 chatRoom.sendOutgoingMessages()
            }
@@ -157,13 +159,13 @@
                 return
             }
             if Thread.current.isMainThread {
-                messagesTextView.text.append("\(message)\r")
-                scrollTextViewToBottom()
+                messagesTextView.text.append("\(message)\n")
+//                scrollTextViewToBottom()
             }
             else {
                 DispatchQueue.main.async(execute: {
-                    self.messagesTextView.text.append("\(message)\r")
-                    self.scrollTextViewToBottom()
+                    self.messagesTextView.text.append("\(message)\n")
+//                    self.scrollTextViewToBottom()
                 })
             }
         }
@@ -173,7 +175,10 @@
                 guard let text = messagesTextView?.text else {
                     return
                 }
-                let range = NSMakeRange(text.count-1, 1)
+                messagesTextView.isScrollEnabled = false
+                messagesTextView.isScrollEnabled = true
+
+                let range = NSMakeRange(text.count, 1)
                 messagesTextView.scrollRangeToVisible(range)
              }
         }
