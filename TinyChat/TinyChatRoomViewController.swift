@@ -143,12 +143,12 @@
             }
             if Thread.current.isMainThread {
                 messagesTextView.text.append("\(message)\n")
-//                scrollTextViewToBottom()
+                scrollTextViewToBottom()
             }
             else {
                 DispatchQueue.main.async(execute: {
                     self.messagesTextView.text.append("\(message)\n")
- //                   self.scrollTextViewToBottom()
+                    self.scrollTextViewToBottom()
                 })
             }
         }
