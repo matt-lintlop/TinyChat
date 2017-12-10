@@ -172,7 +172,7 @@
         
         func scheduleScrollTextViewToBottom() {
             NSObject.cancelPreviousPerformRequests(withTarget: self)
-            self.perform(#selector(scrollTextViewToBottom), with: nil, afterDelay: 0.5)
+            self.perform(#selector(scrollTextViewToBottom), with: nil, afterDelay: 1.0)
         }
         
         @objc func scrollTextViewToBottom() {
