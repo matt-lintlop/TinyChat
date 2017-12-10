@@ -169,12 +169,13 @@
         }
         
         func scrollTextViewToBottom() {
-            if (messagesTextView.contentOffset.y >= messagesTextView.contentSize.height - messagesTextView.frame.size.height) {
-            }
-            else {
-                let contentOffset = CGPoint(x: messagesTextView.contentOffset.x, y: messagesTextView.contentSize.height - messagesTextView.frame.size.height)
-                messagesTextView.setContentOffset(contentOffset, animated: true)
-            }
+            if (messagesTextView.contentOffset.y < messagesTextView.contentSize.height - messagesTextView.frame.size.height) {
+                guard let text = messagesTextView?.text else {
+                    return
+                }
+                let range = NSMakeRange(text.count-1, 1)
+                messagesTextView.scrollRangeToVisible(range)
+             }
         }
         
         // MARK: UITextFieldDelegate
