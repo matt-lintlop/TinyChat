@@ -1,5 +1,5 @@
 //
-//  TinyChat.swift
+//  TinyChatRoom.swift
 //  TinyChat
 //
 //  Created by Matthew Lintlop on 12/6/17.
@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TinyChatRoomDelegateProtocol {
     func showMessage(_ message: String);                        // Show A Message To The User
@@ -50,7 +51,9 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     }
     
     func setupNetworkCommunication() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         chatClient?.connectToChatServer ()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     func teardownNetworkCommunication() {
