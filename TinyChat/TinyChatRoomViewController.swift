@@ -28,7 +28,7 @@
             chatRoom.startCheckingReachability()
             if chatRoom.isChatServerReachable() {
                 
-                let time = currentTime() - Int(5 * 60 * 60 * 1000)      // 2 hours
+                let time = currentTime() - Int(5 * 60 * 60 * 1000)      // 5 hours
                 chatRoom.downloadMessagesSinceDate(time)                // TESTING
                 
  //               chatRoom.downloadMessagesSinceLastTimeConnected()
@@ -157,14 +157,23 @@
                 return
             }
             if Thread.current.isMainThread {
-                messagesTextView.text.append("\(message)\n")
-                self.messagesTextView.scrollRangeToVisible(NSRange(location: 0, length: self.messagesTextView.text.count))
+                messagesTextView.text.append("\(message)\r")
+                scrollTextViewToBottom()
             }
             else {
                 DispatchQueue.main.async(execute: {
-                    self.messagesTextView.text.append("\(message)\n")
-                    self.messagesTextView.scrollRangeToVisible(NSRange(location: 0, length: self.messagesTextView.text.count))
+                    self.messagesTextView.text.append("\(message)\r")
+                    self.scrollTextViewToBottom()
                 })
+            }
+        }
+        
+        func scrollTextViewToBottom() {
+            if (messagesTextView.contentOffset.y >= messagesTextView.contentSize.height - messagesTextView.frame.size.height) {
+            }
+            else {
+                let contentOffset = CGPoint(x: messagesTextView.contentOffset.x, y: messagesTextView.contentSize.height - messagesTextView.frame.size.height)
+                messagesTextView.setContentOffset(contentOffset, animated: true)
             }
         }
         

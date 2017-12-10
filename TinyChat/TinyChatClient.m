@@ -122,7 +122,7 @@
         UInt8 buffer[1024*4];
         UInt8* bufferValues = buffer;
         
-        ssize_t n = read(self.sockfd, buffer, 255);
+        ssize_t n = read(self.sockfd, buffer, (1024 * 4)-100);
         if (n > 0) {
             if ([[NSThread currentThread] isMainThread]) {
                 [self.delegate processDataFromChatServer:buffer length:(int)n];
