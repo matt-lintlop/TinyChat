@@ -101,9 +101,9 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
 //                    print("Success Parsing Message JSON: JSON = \(jsonFromChatServer)")
              }
                 catch {
-                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                    print("Error Parsing Message JSON: JSON = \(jsonFromChatServer)")
-                    print("Error Parsing Message JSON: ERROR = \(error.localizedDescription)")
+//                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+//                    print("Error Parsing Message JSON: JSON = \(jsonFromChatServer)")
+//                    print("Error Parsing Message JSON: ERROR = \(error.localizedDescription)")
                 }
                 jsonFromChatServer = ""
             }

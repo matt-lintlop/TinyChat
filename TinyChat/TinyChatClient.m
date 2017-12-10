@@ -119,10 +119,9 @@
     ioctl(self.sockfd,FIONREAD,&bytes_available);
 
     if (bytes_available > 0) {
-        UInt8 buffer[1024*4];
+        UInt8 buffer[bytes_available+1];
         UInt8* bufferValues = buffer;
-        
-        ssize_t n = read(self.sockfd, buffer, (1024 * 4)-100);
+        ssize_t n = read(self.sockfd, buffer, bytes_available);
         if (n > 0) {
             if ([[NSThread currentThread] isMainThread]) {
                 [self.delegate processDataFromChatServer:buffer length:(int)n];
