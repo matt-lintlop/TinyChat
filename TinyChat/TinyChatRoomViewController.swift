@@ -28,8 +28,8 @@
             chatRoom.startCheckingReachability()
             if chatRoom.isChatServerReachable() {
                 
-                let time = currentTime() - Int(5 * 60 * 60 * 1000)      // 5 hours
-                chatRoom.downloadMessagesSinceDate(time)                // TESTING
+                let time = currentTime() - Int(10 * 60 * 60 * 1000)        // 10 hours
+                chatRoom.downloadMessagesSinceDate(time)                   // TESTING
                 
  //               chatRoom.downloadMessagesSinceLastTimeConnected()
                 
