@@ -143,7 +143,7 @@
 }
 
 - (void)resume {
-    self.readDataTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkForDataFromChatServer) userInfo:nil repeats:YES];
+    self.readDataTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(checkForDataFromChatServer) userInfo:nil repeats:YES];
 }
 
 @end
