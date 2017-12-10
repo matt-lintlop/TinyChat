@@ -46,10 +46,10 @@
     
     bzero((char*) &serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
-    bcopy((struct in_addr*)server->h_addr_list[0], &serv_addr.sin_addr.s_addr, server->h_length);
+    bcopy(server->h_addr_list[0], &serv_addr.sin_addr.s_addr, server->h_length);
     serv_addr.sin_port = htons(1234);
     
-    // Now connect to the TCP Server
+    // Now connect to the Chat Server using TCP
     if (connect(self.sockfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
         NSLog(@"ERROR connecting");
         self.connected = NO;
