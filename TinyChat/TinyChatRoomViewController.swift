@@ -22,7 +22,7 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            self.messagesTextView.contentInsetAdjustmentBehavior = .automatic
+            self.messagesTextView.contentInsetAdjustmentBehavior = .never
             
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
