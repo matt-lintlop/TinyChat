@@ -160,24 +160,26 @@
             }
             if Thread.current.isMainThread {
                 messagesTextView.text.append("\(message)\n")
-//                scrollTextViewToBottom()
+                scrollTextViewToBottom()
             }
             else {
                 DispatchQueue.main.async(execute: {
                     self.messagesTextView.text.append("\(message)\n")
-//                    self.scrollTextViewToBottom()
+                    self.scrollTextViewToBottom()
                 })
             }
         }
         
-        func scrollTextViewToBottom() {
+        func scheduleScrollTextViewToBottom() {
+            NSObject.cancelPreviousPerformRequests(withTarget: self)
+            self.perform(#selector(scrollTextViewToBottom), with: nil, afterDelay: 0.5)
+        }
+        
+        @objc func scrollTextViewToBottom() {
             if (messagesTextView.contentOffset.y < messagesTextView.contentSize.height - messagesTextView.frame.size.height) {
                 guard let text = messagesTextView?.text else {
                     return
                 }
-                messagesTextView.isScrollEnabled = false
-                messagesTextView.isScrollEnabled = true
-
                 let range = NSMakeRange(text.count, 1)
                 messagesTextView.scrollRangeToVisible(range)
              }
