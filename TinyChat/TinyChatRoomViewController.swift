@@ -28,10 +28,10 @@
             chatRoom.startCheckingReachability()
             if chatRoom.isChatServerReachable() {
                 
-                let time = currentTime() - (1000 * 60 * 60 * 5)
+                let time = currentTime() - (1000 * 60 * 60 * 24 * 3)  // past 3 days
                 chatRoom.downloadMessagesSinceDate(time)                // TESTING
                 
-  //              chatRoom.downloadMessagesSinceLastTimeConnected()
+                chatRoom.downloadMessagesSinceLastTimeConnected()
                 
                 chatRoom.sendOutgoingMessages()
            }
@@ -157,11 +157,13 @@
                 return
             }
             if Thread.current.isMainThread {
-                messagesTextView.text.append("\(message)\r")
+                messagesTextView.text.append("\(message)\n")
+                self.messagesTextView.scrollRangeToVisible(NSRange(location: 0, length: self.messagesTextView.text.count))
             }
             else {
                 DispatchQueue.main.async(execute: {
-                    self.messagesTextView.text.append("\(message)\r")
+                    self.messagesTextView.text.append("\(message)\n")
+                    self.messagesTextView.scrollRangeToVisible(NSRange(location: 0, length: self.messagesTextView.text.count))
                 })
             }
         }
