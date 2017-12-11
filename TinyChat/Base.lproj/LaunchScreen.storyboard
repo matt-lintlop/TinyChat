@@ -64,7 +64,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sz-7I-XFD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC"/>
+                    <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC">
+                        <barButtonItem key="rightBarButtonItem" image="eraser_icon" id="oxR-Mj-st0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,4 +97,7 @@
             <point key="canvasLocation" x="-426" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eraser_icon" width="27" height="27"/>
+    </resources>
 </document>
