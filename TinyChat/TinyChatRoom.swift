@@ -296,12 +296,10 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         guard length > 0 else {
             return
         }
-        setActivityInditcatorVisible(true)
         let data = Data(bytes: buffer, count: Int(length))
         if let json = String(data: data, encoding: .utf8) {
             parseJSONFromServer(json)
         }
-        setActivityInditcatorVisible(false)
    }
     
     // MARK: Message History

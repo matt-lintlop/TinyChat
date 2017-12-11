@@ -161,9 +161,11 @@
 - (void)setNetworkIndicatorVisible:(BOOL)visible {
     if (visible) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        NSLog(@"Network Indicator Is Visible");
     }
     else {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"Hidden Network Indicator Is Hidden");
     }
 }
 
