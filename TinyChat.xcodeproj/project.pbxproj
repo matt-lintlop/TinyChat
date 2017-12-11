@@ -18,12 +18,12 @@
 		3424148E1FDB80F6004335D2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 342414861FDB80F6004335D2 /* Reachability.m */; };
 		3424148F1FDB80F6004335D2 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414871FDB80F6004335D2 /* History.swift */; };
 		342414921FDB80FF004335D2 /* TinyChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 342414911FDB80FF004335D2 /* TinyChatClient.m */; };
+		345307211FDE414700DEF70F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 345307201FDE414700DEF70F /* icon.png */; };
+		345307231FDE415500DEF70F /* eraser_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 345307221FDE415500DEF70F /* eraser_icon@3x.png */; };
 		34F5949C1FDE3554007FDFF1 /* eraser_icon@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */; };
 		34F5949D1FDE3554007FDFF1 /* eraser_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F5949A1FDE3554007FDFF1 /* eraser_icon.png */; };
-		34F5949E1FDE3554007FDFF1 /* eraser_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */; };
 		34F594A41FDE39AB007FDFF1 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594A11FDE39AA007FDFF1 /* icon@2x.png */; };
 		34F594A61FDE3DCC007FDFF1 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594A51FDE3DCC007FDFF1 /* icon@3x.png */; };
-		34F594A81FDE3E73007FDFF1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594A71FDE3E72007FDFF1 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,13 +42,13 @@
 		342414871FDB80F6004335D2 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		342414901FDB80FF004335D2 /* TinyChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyChatClient.h; sourceTree = "<group>"; };
 		342414911FDB80FF004335D2 /* TinyChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TinyChatClient.m; sourceTree = "<group>"; };
+		345307201FDE414700DEF70F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		345307221FDE415500DEF70F /* eraser_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser_icon@3x.png"; sourceTree = "<group>"; };
 		34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser_icon@2x..png"; sourceTree = "<group>"; };
 		34F5949A1FDE3554007FDFF1 /* eraser_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser_icon.png; sourceTree = "<group>"; };
-		34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eraser_icon@3x.png"; path = "../../../../Desktop/eraser icons/eraser_icon@3x.png"; sourceTree = "<group>"; };
 		34F594A11FDE39AA007FDFF1 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		34F594A51FDE3DCC007FDFF1 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
-		34F594A71FDE3E72007FDFF1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = "../../../../Desktop/New App Images/icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,8 @@
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
 				34F5949A1FDE3554007FDFF1 /* eraser_icon.png */,
 				34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */,
-				34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */,
-				34F594A71FDE3E72007FDFF1 /* icon.png */,
+				345307221FDE415500DEF70F /* eraser_icon@3x.png */,
+				345307201FDE414700DEF70F /* icon.png */,
 				34F594A11FDE39AA007FDFF1 /* icon@2x.png */,
 				34F594A51FDE3DCC007FDFF1 /* icon@3x.png */,
 				342414721FDB809B004335D2 /* Assets.xcassets */,
@@ -167,11 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F5949C1FDE3554007FDFF1 /* eraser_icon@2x..png in Resources */,
-				34F5949E1FDE3554007FDFF1 /* eraser_icon@3x.png in Resources */,
 				34F594A61FDE3DCC007FDFF1 /* icon@3x.png in Resources */,
 				342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */,
 				34F5949D1FDE3554007FDFF1 /* eraser_icon.png in Resources */,
-				34F594A81FDE3E73007FDFF1 /* icon.png in Resources */,
+				345307231FDE415500DEF70F /* eraser_icon@3x.png in Resources */,
+				345307211FDE414700DEF70F /* icon.png in Resources */,
 				342414731FDB809B004335D2 /* Assets.xcassets in Resources */,
 				342414711FDB809B004335D2 /* Main.storyboard in Resources */,
 				34F594A41FDE39AB007FDFF1 /* icon@2x.png in Resources */,
