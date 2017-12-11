@@ -19,9 +19,9 @@
 		3424148F1FDB80F6004335D2 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342414871FDB80F6004335D2 /* History.swift */; };
 		342414921FDB80FF004335D2 /* TinyChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 342414911FDB80FF004335D2 /* TinyChatClient.m */; };
 		344288BC1FDC2D7C00079B68 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 344288BB1FDC2D7C00079B68 /* icon.png */; };
-		3479F4201FDC552700B2DD96 /* eraser_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479F41F1FDC552600B2DD96 /* eraser_icon.png */; };
-		34F5948B1FDE2C57007FDFF1 /* eraser_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594891FDE2C57007FDFF1 /* eraser_icon@3x.png */; };
-		34F5948C1FDE2C57007FDFF1 /* eraser_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F5948A1FDE2C57007FDFF1 /* eraser_icon@2x.png */; };
+		34F5949C1FDE3554007FDFF1 /* eraser_icon@2x..png in Resources */ = {isa = PBXBuildFile; fileRef = 34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */; };
+		34F5949D1FDE3554007FDFF1 /* eraser_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F5949A1FDE3554007FDFF1 /* eraser_icon.png */; };
+		34F5949E1FDE3554007FDFF1 /* eraser_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +41,10 @@
 		342414901FDB80FF004335D2 /* TinyChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyChatClient.h; sourceTree = "<group>"; };
 		342414911FDB80FF004335D2 /* TinyChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TinyChatClient.m; sourceTree = "<group>"; };
 		344288BB1FDC2D7C00079B68 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		3479F41F1FDC552600B2DD96 /* eraser_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser_icon.png; sourceTree = "<group>"; };
 		34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinyChat-Bridging-Header.h"; sourceTree = "<group>"; };
-		34F594891FDE2C57007FDFF1 /* eraser_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser_icon@3x.png"; sourceTree = "<group>"; };
-		34F5948A1FDE2C57007FDFF1 /* eraser_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser_icon@2x.png"; sourceTree = "<group>"; };
+		34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser_icon@2x..png"; sourceTree = "<group>"; };
+		34F5949A1FDE3554007FDFF1 /* eraser_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser_icon.png; sourceTree = "<group>"; };
+		34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eraser_icon@3x.png"; path = "../../../../Desktop/eraser icons/eraser_icon@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +88,11 @@
 				342414861FDB80F6004335D2 /* Reachability.m */,
 				342414771FDB809B004335D2 /* Info.plist */,
 				342414821FDB80F5004335D2 /* Utility.swift */,
-				3479F41F1FDC552600B2DD96 /* eraser_icon.png */,
-				34F5948A1FDE2C57007FDFF1 /* eraser_icon@2x.png */,
-				34F594891FDE2C57007FDFF1 /* eraser_icon@3x.png */,
 				34CA0A281FDB882D00FD7605 /* TinyChat-Bridging-Header.h */,
 				3424146F1FDB809B004335D2 /* Main.storyboard */,
+				34F5949A1FDE3554007FDFF1 /* eraser_icon.png */,
+				34F594991FDE3553007FDFF1 /* eraser_icon@2x..png */,
+				34F5949B1FDE3554007FDFF1 /* eraser_icon@3x.png */,
 				344288BB1FDC2D7C00079B68 /* icon.png */,
 				342414721FDB809B004335D2 /* Assets.xcassets */,
 				342414741FDB809B004335D2 /* LaunchScreen.storyboard */,
@@ -160,12 +160,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3479F4201FDC552700B2DD96 /* eraser_icon.png in Resources */,
-				34F5948C1FDE2C57007FDFF1 /* eraser_icon@2x.png in Resources */,
+				34F5949C1FDE3554007FDFF1 /* eraser_icon@2x..png in Resources */,
 				344288BC1FDC2D7C00079B68 /* icon.png in Resources */,
+				34F5949E1FDE3554007FDFF1 /* eraser_icon@3x.png in Resources */,
 				342414761FDB809B004335D2 /* LaunchScreen.storyboard in Resources */,
+				34F5949D1FDE3554007FDFF1 /* eraser_icon.png in Resources */,
 				342414731FDB809B004335D2 /* Assets.xcassets in Resources */,
-				34F5948B1FDE2C57007FDFF1 /* eraser_icon@3x.png in Resources */,
 				342414711FDB809B004335D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

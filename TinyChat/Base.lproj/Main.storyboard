@@ -26,6 +26,7 @@
                             <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pa4-5A-DrV">
                                 <rect key="frame" x="16" y="80" width="343" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -114,6 +115,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eraser_icon.png" width="30" height="30"/>
+        <image name="eraser_icon.png" width="27" height="27"/>
     </resources>
 </document>
