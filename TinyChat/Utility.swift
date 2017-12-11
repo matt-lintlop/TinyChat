@@ -20,10 +20,8 @@ func currentTime() -> Int {
 func setActivityInditcatorVisible(_ visible: Bool) {
     if (visible) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        print("Network Indicator Is Shown");
     }
     else {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        print("Network Indicator Is Not Shown");
    }
 }
