@@ -49,7 +49,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Send">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="sendPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7j5-xx-Tht"/>
@@ -73,7 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tiny Chat" largeTitleDisplayMode="always" id="S6R-Z9-eXI">
                         <barButtonItem key="rightBarButtonItem" image="eraser_icon.png" id="XdN-VM-W0p">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="erasePressed:" destination="BYZ-38-t0r" id="LY1-ZM-Fvc"/>
                             </connections>
@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1848358259" green="0.63138068469999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
