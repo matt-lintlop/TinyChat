@@ -14,6 +14,7 @@
 #import <netdb.h>
 #import <netinet/in.h>
 #import <string.h>
+#import <UIKit/UIKit.h>
 
 @implementation TinyChatClient
 
@@ -80,6 +81,8 @@
     }
     NSUInteger bytesRemaining = length;
     
+    [self setNetworkIndicatorVisible:true];
+
     // Send the message to the TCP server.
     ssize_t n;
     do {
@@ -91,10 +94,12 @@
     
     if (n < 0) {
         perror("ERROR writing to socket");
+        [self setNetworkIndicatorVisible:false];
         return NO;
     }
     else {
         ssize_t n = write(self.sockfd, "\n", 1);
+        [self setNetworkIndicatorVisible:false];
         return n > 0;
     }
 }
@@ -143,6 +148,15 @@
 
 - (void)resume {
     self.readDataTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(checkForDataFromChatServer) userInfo:nil repeats:YES];
+}
+
+- (void)setNetworkIndicatorVisible:(BOOL)visible {
+    if (visible) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
+    else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
 }
 
 @end

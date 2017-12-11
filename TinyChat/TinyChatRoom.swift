@@ -163,8 +163,6 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
             return false
         }
         
-        setActivityInditcatorVisible(true)
-        
         var result = true
         let encoder = JSONEncoder()
         do {
@@ -175,8 +173,6 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
             print("Error Getting History: \(error.localizedDescription)")
             result = false
         }
-        setActivityInditcatorVisible(false)
-
         return result
     }
   

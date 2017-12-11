@@ -16,12 +16,3 @@ func currentTime() -> Int {
     return Int(now.timeIntervalSince1970 * 1000)
 }
 
-// show or hide the network indicator in the navigation bar
-func setActivityInditcatorVisible(_ visible: Bool) {
-    if (visible) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    else {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-}
