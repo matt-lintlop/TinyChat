@@ -19,29 +19,30 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController title="Tiny Chat" id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aJR-rY-gwy">
+                    <view key="view" contentMode="scaleToFill" id="gNQ-Mw-0nE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-CH-aAS">
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yzj-OF-7qY">
                                 <rect key="frame" x="16" y="80" width="343" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something nice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7pl-3J-9pr">
-                                <rect key="frame" x="16" y="627" width="269" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something nice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Nv-ov-FcW">
+                                <rect key="frame" x="16" y="627" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AO2-uG-gUB"/>
+                                    <constraint firstAttribute="height" constant="30" id="gip-zf-QuM"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOk-JT-nYl">
-                                <rect key="frame" x="302" y="627" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-5N-STG">
+                                <rect key="frame" x="308" y="627" width="42" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="1Uz-bn-laJ"/>
+                                    <constraint firstAttribute="width" constant="42" identifier="sendWidth" id="0sM-7f-HmP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Send">
@@ -51,18 +52,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1848358259" green="0.63138068469999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2sz-7I-XFD" firstAttribute="trailing" secondItem="nOk-JT-nYl" secondAttribute="trailing" constant="16" id="7F8-mT-ZSg"/>
-                            <constraint firstItem="7pl-3J-9pr" firstAttribute="top" secondItem="Ily-CH-aAS" secondAttribute="bottom" constant="10" id="HsN-cU-A3I"/>
-                            <constraint firstItem="Ily-CH-aAS" firstAttribute="leading" secondItem="2sz-7I-XFD" secondAttribute="leading" constant="16" id="Lld-DQ-epl"/>
-                            <constraint firstItem="2sz-7I-XFD" firstAttribute="trailing" secondItem="7pl-3J-9pr" secondAttribute="trailing" constant="90" id="Rk2-LB-PLh"/>
-                            <constraint firstItem="2sz-7I-XFD" firstAttribute="bottom" secondItem="nOk-JT-nYl" secondAttribute="bottom" constant="10" id="YID-hs-geT"/>
-                            <constraint firstItem="2sz-7I-XFD" firstAttribute="bottom" secondItem="7pl-3J-9pr" secondAttribute="bottom" constant="10" id="aRJ-NA-djL"/>
-                            <constraint firstItem="Ily-CH-aAS" firstAttribute="top" secondItem="2sz-7I-XFD" secondAttribute="top" constant="16" id="b0R-co-LAv"/>
-                            <constraint firstItem="7pl-3J-9pr" firstAttribute="leading" secondItem="2sz-7I-XFD" secondAttribute="leading" constant="16" id="l30-o5-oah"/>
-                            <constraint firstItem="Ily-CH-aAS" firstAttribute="top" secondItem="2sz-7I-XFD" secondAttribute="top" constant="16" id="l3t-9n-1d5"/>
-                            <constraint firstItem="2sz-7I-XFD" firstAttribute="trailing" secondItem="Ily-CH-aAS" secondAttribute="trailing" constant="16" id="ust-l6-YDP"/>
+                            <constraint firstItem="Dzs-FV-wrv" firstAttribute="bottom" secondItem="bcq-5N-STG" secondAttribute="bottom" constant="10" id="2o3-KP-tao"/>
+                            <constraint firstItem="Dzs-FV-wrv" firstAttribute="trailing" secondItem="2Nv-ov-FcW" secondAttribute="trailing" constant="85" id="8gc-ZR-mpn"/>
+                            <constraint firstItem="Dzs-FV-wrv" firstAttribute="trailing" secondItem="bcq-5N-STG" secondAttribute="trailing" constant="25" id="AFG-0r-xrx"/>
+                            <constraint firstItem="yzj-OF-7qY" firstAttribute="leading" secondItem="Dzs-FV-wrv" secondAttribute="leading" constant="16" identifier="textViewLeft" id="AQ5-jq-zEy"/>
+                            <constraint firstItem="2Nv-ov-FcW" firstAttribute="height" secondItem="bcq-5N-STG" secondAttribute="height" identifier="messageHeight" id="PDf-cW-360"/>
+                            <constraint firstItem="Dzs-FV-wrv" firstAttribute="bottom" secondItem="2Nv-ov-FcW" secondAttribute="bottom" constant="10" identifier="messageBottom" id="Qym-8Z-a4b"/>
+                            <constraint firstItem="Dzs-FV-wrv" firstAttribute="trailing" secondItem="yzj-OF-7qY" secondAttribute="trailing" constant="16" id="ZqG-C8-r3d"/>
+                            <constraint firstItem="2Nv-ov-FcW" firstAttribute="leading" secondItem="Dzs-FV-wrv" secondAttribute="leading" constant="16" identifier="messageLeft" id="fJR-0t-Ytu"/>
+                            <constraint firstItem="yzj-OF-7qY" firstAttribute="top" secondItem="Dzs-FV-wrv" secondAttribute="top" constant="16" identifier="textViewTop" id="rZB-Go-Zx6"/>
+                            <constraint firstItem="2Nv-ov-FcW" firstAttribute="top" secondItem="yzj-OF-7qY" secondAttribute="bottom" constant="10" identifier="messageTop" id="u4x-hs-nFQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="2sz-7I-XFD"/>
+                        <viewLayoutGuide key="safeArea" id="Dzs-FV-wrv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tiny Chat" id="ojn-wl-cdC">
                         <barButtonItem key="rightBarButtonItem" image="eraser_icon" id="oxR-Mj-st0">
@@ -82,7 +83,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cIl-jH-Qov">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1848358259" green="0.63138068469999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16101640462875366" green="0.72294765710830688" blue="0.98709827661514282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
