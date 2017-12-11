@@ -81,8 +81,6 @@
     }
     NSUInteger bytesRemaining = length;
     
-    [self setNetworkIndicatorVisible:true];
-
     // Send the message to the TCP server.
     ssize_t n;
     do {
@@ -94,12 +92,10 @@
     
     if (n < 0) {
         perror("ERROR writing to socket");
-        [self setNetworkIndicatorVisible:false];
         return NO;
     }
     else {
         ssize_t n = write(self.sockfd, "\n", 1);
-        [self setNetworkIndicatorVisible:false];
         return n > 0;
     }
 }
@@ -108,11 +104,15 @@
     if (!self.connected) {
         return 0;
     }
+    [self setNetworkIndicatorVisible:YES];
+
     bzero(buffer, 256);
     ssize_t bytesRead = read(self.sockfd, buffer, 255);
     if (bytesRead < 0) {
         perror("ERROR reading from socket");
     }
+    [self setNetworkIndicatorVisible:NO];
+
     return (int)bytesRead;
 }
 
@@ -126,16 +126,24 @@
     if (bytes_available > 0) {
         UInt8 buffer[bytes_available+1];
         UInt8* bufferValues = buffer;
+        
+        [self setNetworkIndicatorVisible:true];
+        
         ssize_t n = read(self.sockfd, buffer, bytes_available);
         if (n > 0) {
             if ([[NSThread currentThread] isMainThread]) {
                 [self.delegate processDataFromChatServer:buffer length:(int)n];
+                [self setNetworkIndicatorVisible:false];
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.delegate processDataFromChatServer:bufferValues length:(int)n];
-                });
+                    [self setNetworkIndicatorVisible:false];
+               });
             }
+        }
+        else {
+            [self setNetworkIndicatorVisible:false];
         }
     }
  }

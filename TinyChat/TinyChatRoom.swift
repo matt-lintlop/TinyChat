@@ -162,14 +162,18 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         guard self.chatClient != nil && self.chatClient!.connected else {
             return false
         }
+        setActivityInditcatorVisible(true)
         
         var result = true
         let encoder = JSONEncoder()
         do {
             let history = History(since: since)
             var data = try encoder.encode(history)
-            return chatClient!.write(data, length: UInt(data.count))
+            let didWrite = chatClient!.write(data, length: UInt(data.count))
+            return didWrite
+
         } catch {
+            setActivityInditcatorVisible(false)
             print("Error Getting History: \(error.localizedDescription)")
             result = false
         }
@@ -292,11 +296,13 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         guard length > 0 else {
             return
         }
+        setActivityInditcatorVisible(true)
         let data = Data(bytes: buffer, count: Int(length))
         if let json = String(data: data, encoding: .utf8) {
             parseJSONFromServer(json)
         }
-    }
+        setActivityInditcatorVisible(false)
+   }
     
     // MARK: Message History
     
