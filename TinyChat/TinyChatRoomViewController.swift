@@ -25,7 +25,7 @@
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
             
-            let time = currentTime() - Int(10 * 60 * 60 * 1000)
+            let time = currentTime() - Int(2 * 60 * 60 * 1000)
             chatRoom.setLastTimeConnected(time)                             // TESTING
 
             chatRoom.startCheckingReachability()
