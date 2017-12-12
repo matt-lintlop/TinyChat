@@ -88,7 +88,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     func setLastTimeConnected(_ time: Int) {
         let defaults = UserDefaults()
         defaults.set(time, forKey: "lastTimeConnected")
-        self.lastTimeConnected = lastTime
+        self.lastTimeConnected = time
    }
 
     func setLastTimeConnectedToNow() {
