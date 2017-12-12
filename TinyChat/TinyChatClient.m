@@ -82,6 +82,9 @@
     if (!self.connected) {
         return NO;
     }
+    
+    NSLog(@"Write Data Current Thread: %X", [NSThread currentThread]);
+    
     NSUInteger bytesRemaining = data.length;
     
     // Send the message to the TCP server.
@@ -177,6 +180,8 @@
 #pragma mark - NSOperation
 
 - (void)main {
+    NSLog(@"Tiny Chat Client Current Thread: %X", [NSThread currentThread]);
+
     [self connectToChatServer];
  
     while (!self.isCancelled) {

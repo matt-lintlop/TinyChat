@@ -178,7 +178,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
             return false
         }
         
-        print("Downloadinf Messages Since: \(since)")
+        print("Downloading Messages Since: \(since)")
         setActivityInditcatorVisible(true)
         
         var result = true
