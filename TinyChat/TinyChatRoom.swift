@@ -21,6 +21,8 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     var lastTimeConnected: Int?                                 // Time Of Last Connection To The Chat Server
     var chatServerReachableTimer: Timer?                        // Timer Used To Check For Reachability To Chat Server
     var chatClient: TinyChatClient?                             // Chat Client
+    var chatClientQueue: OperationQueue?                        // Chat Client Operation Queue
+    
     var jsonFromChatServer: String                              // Current JSON From Chat Server
 
     let chatServerIP = "52.91.109.76"                           // Chat Server IP Address
@@ -31,12 +33,17 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     override init() {
         self.delegate = nil
         self.chatServerReachability = Reachability(hostName: chatServerIP)
-        self.chatClient = TinyChatClient()
         self.jsonFromChatServer = ""
         
+        self.chatClientQueue = OperationQueue()
+        self.chatClientQueue!.name = "com.opengarden.tinyChat"
+        self.chatClient = TinyChatClient()
+
         super.init()
 
         self.chatClient?.delegate = self
+        
+        self.chatClientQueue?.addOperation(self.chatClient!)
 
         // load outgoing messages that are persisted on disk
         self.loadOutgoingMessages()

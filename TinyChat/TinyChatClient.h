@@ -13,7 +13,7 @@
 -(void)processDataFromChatServer:(UInt8*)buffer length:(int)length;
 @end
 
-@interface TinyChatClient : NSObject
+@interface TinyChatClient : NSOperation
 
 - (void)connectToChatServer;
 - (void)disconnect;
@@ -26,9 +26,11 @@
 - (void)suspend;
 - (void)resume;
 
+- (void)main;
+
 @property (nonatomic) int sockfd;
 @property (nonatomic) BOOL connected;
-@property (nonatomic, strong) NSTimer *readDataTimer;
+@property (nonatomic) BOOL suspended;
 @property (nonatomic, weak) id<TinyChatClientDelegate> delegate;
 
 @end

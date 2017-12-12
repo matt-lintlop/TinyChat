@@ -21,12 +21,9 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-            self.messagesTextView.contentInsetAdjustmentBehavior = .never
-            
+
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
-            chatRoom.setupNetworkCommunication()
             chatRoom.startCheckingReachability()
             if chatRoom.isChatServerReachable() {
                 

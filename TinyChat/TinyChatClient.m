@@ -22,26 +22,27 @@
     self = [super init];
     if (self) {
         self.connected = NO;
+        self.suspended = YES;
     }
     return self;
 }
 
 - (void)connectToChatServer {
     struct hostent *server;
-    struct sockaddr_in serv_addr __attribute__((packed));;
+    struct sockaddr_in serv_addr;
     
-    // TODO: Show Network Indicator
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    });
     
     // Create a socket point
     self.sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (self.sockfd < 0) {
         perror("ERROR opening socket");
-        exit(1);
     }
     server = gethostbyname("52.91.109.76");
     if (server == NULL) {
         fprintf(stderr, "ERROR, no such host: %s\n", "52.91.109.76");
-        exit(0);
     }
     printf("Resolved Host: %s\n", server->h_name);
     
@@ -59,9 +60,10 @@
         self.connected = YES;
         NSLog(@"Connected to the chat server");
     }
-    
-    // TODO: Hide Network Indicator
-
+      
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    });
 }
 
 - (void)disconnect {
@@ -149,21 +151,38 @@
  }
 
 - (void)suspend {
-    [self performSelectorInBackground:(@selector(checkForDataFromChatServer)) withObject:nil];
-    [self.readDataTimer invalidate];
-    self.readDataTimer = nil;
+    if (!self.suspended) {
+        self.suspended = TRUE;
+    }
 }
 
 - (void)resume {
-    self.readDataTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(checkForDataFromChatServer) userInfo:nil repeats:YES];
+    if (self.suspended) {
+        self.suspended = NO;
+    }
 }
 
 - (void)setNetworkIndicatorVisible:(BOOL)visible {
-    if (visible) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    }
-    else {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (visible) {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        }
+        else {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        }
+   });
+}
+
+#pragma mark - NSOperation
+
+- (void)main {
+    [self connectToChatServer];
+
+    while (!self.isCancelled) {
+        if (!self.suspended) {
+            [self checkForDataFromChatServer];
+        }
+        [NSThread sleepForTimeInterval:0.025];
     }
 }
 
