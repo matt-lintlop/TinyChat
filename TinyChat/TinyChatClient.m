@@ -177,7 +177,7 @@
 
 - (void)main {
     [self connectToChatServer];
-
+ 
     while (!self.isCancelled) {
         if (!self.suspended) {
             [self checkForDataFromChatServer];
