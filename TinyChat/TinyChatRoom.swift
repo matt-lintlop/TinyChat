@@ -178,7 +178,9 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
             return false
         }
         
-        print("Downloading Messages Since: \(since)")
+        let elapsedSecs = (currentTime() - since)/1000
+        print("Downloading Messages Since: \(since) : Elapsed \(elapsedSecs) Seconds")
+        
         setActivityInditcatorVisible(true)
         
         var result = true

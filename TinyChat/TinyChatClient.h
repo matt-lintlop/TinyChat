@@ -24,6 +24,8 @@
 
 - (void)checkForDataFromChatServer;
 
+- (void)setNetworkActivityIndicatorVisible:(BOOL)visible;
+
 - (void)suspend;
 - (void)resume;
 

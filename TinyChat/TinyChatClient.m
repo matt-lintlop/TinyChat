@@ -31,9 +31,7 @@
     struct hostent *server;
     struct sockaddr_in serv_addr;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    });
+    [self setNetworkActivityIndicatorVisible:YES];
     
     // Create a socket point
     self.sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -62,9 +60,7 @@
         NSLog(@"Connected to the chat server");
     }
       
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    });
+    [self setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)disconnect {
@@ -83,7 +79,7 @@
         return NO;
     }
     
-    NSLog(@"Write Data Current Thread: %X", [NSThread currentThread]);
+    NSLog(@"Write Data Current Thread: %@", [NSThread currentThread]);
     
     NSUInteger bytesRemaining = data.length;
     
@@ -110,14 +106,14 @@
     if (!self.connected) {
         return 0;
     }
-    [self setNetworkIndicatorVisible:YES];
+    [self setNetworkActivityIndicatorVisible:YES];
 
     bzero(buffer, 256);
     ssize_t bytesRead = read(self.sockfd, buffer, 255);
     if (bytesRead < 0) {
         perror("ERROR reading from socket");
     }
-    [self setNetworkIndicatorVisible:NO];
+    [self setNetworkActivityIndicatorVisible:NO];
 
     return (int)bytesRead;
 }
@@ -133,23 +129,23 @@
         UInt8 buffer[bytes_available+1];
         UInt8* bufferValues = buffer;
         
-        [self setNetworkIndicatorVisible:true];
+        [self setNetworkActivityIndicatorVisible:true];
         
         ssize_t n = read(self.sockfd, buffer, bytes_available);
         if (n > 0) {
             if ([[NSThread currentThread] isMainThread]) {
                 [self.delegate processDataFromChatServer:buffer length:(int)n];
-                [self setNetworkIndicatorVisible:false];
+                [self setNetworkActivityIndicatorVisible:false];
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.delegate processDataFromChatServer:bufferValues length:(int)n];
-                    [self setNetworkIndicatorVisible:false];
+                    [self setNetworkActivityIndicatorVisible:false];
                });
             }
         }
         else {
-            [self setNetworkIndicatorVisible:false];
+            [self setNetworkActivityIndicatorVisible:false];
         }
     }
  }
@@ -166,7 +162,7 @@
     }
 }
 
-- (void)setNetworkIndicatorVisible:(BOOL)visible {
+- (void)setNetworkActivityIndicatorVisible:(BOOL)visible {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (visible) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -180,7 +176,7 @@
 #pragma mark - NSOperation
 
 - (void)main {
-    NSLog(@"Tiny Chat Client Current Thread: %X", [NSThread currentThread]);
+    NSLog(@"Tiny Chat Client Current Thread: %@", [NSThread currentThread]);
 
     [self connectToChatServer];
  
