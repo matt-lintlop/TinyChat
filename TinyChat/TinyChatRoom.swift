@@ -116,9 +116,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
 //                    print("Success Parsing Message JSON: JSON = \(jsonFromChatServer)")
              }
                 catch {
-//                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-//                    print("Error Parsing Message JSON: JSON = \(jsonFromChatServer)")
-//                    print("Error Parsing Message JSON: ERROR = \(error.localizedDescription)")
+                    print("Error Parsing Message JSON: JSON = \(jsonFromChatServer)")
                 }
                 jsonFromChatServer = ""
             }
@@ -157,7 +155,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     // MARK: Sending Messages
     func userDidEnterMessage(_ text: String) {
         // create a new Message with the given text at the current time
-        let newMessage = Message(msg: text, client_time: currentTime())
+        let newMessage = Message(msg: text, client_time: Double(currentTime()))
 
         if isChatServerReachable() {
             // the chat server is reachable. send the messag

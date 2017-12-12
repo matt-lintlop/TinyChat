@@ -24,6 +24,10 @@
             
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
+            
+            let time = currentTime() - Int(10 * 60 * 60 * 1000)
+            chatRoom.setLastTimeConnected(time)                             // TESTING
+
             chatRoom.startCheckingReachability()
             
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
