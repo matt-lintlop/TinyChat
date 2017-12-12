@@ -205,7 +205,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         do {
             print("Now Sending Message: \(message.msg)")
            let data = try encoder.encode(message)
-            return chatClient!.write(data)
+           return chatClient!.write(data)
         } catch {
             print("Error Sending Message: \(error.localizedDescription)")
         }
