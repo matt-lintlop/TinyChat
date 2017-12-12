@@ -58,6 +58,7 @@
     }
     else {
         self.connected = YES;
+        [self.delegate clientDidConnect];
         NSLog(@"Connected to the chat server");
     }
       
@@ -77,16 +78,16 @@
     }
 }
 
-- (BOOL)writeData:(NSData*)data length:(NSUInteger)length {
+- (BOOL)writeData:(NSData*)data {
     if (!self.connected) {
         return NO;
     }
-    NSUInteger bytesRemaining = length;
+    NSUInteger bytesRemaining = data.length;
     
     // Send the message to the TCP server.
     ssize_t n;
     do {
-        n = write(self.sockfd, data.bytes, length);
+        n = write(self.sockfd, data.bytes, bytesRemaining);
         if (n > 0) {
             bytesRemaining -= n;
         }

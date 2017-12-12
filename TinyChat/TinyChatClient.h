@@ -11,6 +11,7 @@
 
 @protocol TinyChatClientDelegate
 -(void)processDataFromChatServer:(UInt8*)buffer length:(int)length;
+-(void)clientDidConnect;
 @end
 
 @interface TinyChatClient : NSOperation
@@ -18,7 +19,7 @@
 - (void)connectToChatServer;
 - (void)disconnect;
 
-- (BOOL)writeData:(NSData*)data length:(NSUInteger)length;
+- (BOOL)writeData:(NSData*)data;
 - (int)readData:(char*)buffer length:(NSUInteger)maxLength;
 
 - (void)checkForDataFromChatServer;

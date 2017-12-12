@@ -18,10 +18,12 @@ func currentTime() -> Int {
 
 // show or hide the network indicator in the navigation bar
 func setActivityInditcatorVisible(_ visible: Bool) {
-    if (visible) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    DispatchQueue.main.async { 
+        if (visible) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+        else {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
     }
-    else {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-   }
-}
+ }

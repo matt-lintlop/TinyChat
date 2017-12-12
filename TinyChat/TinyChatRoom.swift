@@ -40,6 +40,13 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         self.chatClient = TinyChatClient()
 
         super.init()
+        
+        
+        let time = Int(currentTime()) - Int(1000 * 60 * 60 * 1000)        // 1000 hours of messages
+        print("MAGIC TIME: \(time)")
+
+        setLastTimeConnected(time)                                         // TESTING
+
 
         self.chatClient?.delegate = self
         
@@ -78,10 +85,14 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         }
     }
     
-    func setLastTimeConnectedToNow() {
+    func setLastTimeConnected(_ time: Int) {
         let defaults = UserDefaults()
-        let time = currentTime()
         defaults.set(time, forKey: "lastTimeConnected")
+        self.lastTimeConnected = lastTime
+   }
+
+    func setLastTimeConnectedToNow() {
+        setLastTimeConnected(currentTime())
     }
     
     // Parse JSON from the server 1 object at a time
@@ -169,14 +180,16 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         guard self.chatClient != nil && self.chatClient!.connected else {
             return false
         }
+        
+        print("Downloadinf Messages Since: \(since)")
         setActivityInditcatorVisible(true)
         
         var result = true
         let encoder = JSONEncoder()
         do {
             let history = History(since: since)
-            var data = try encoder.encode(history)
-            let didWrite = chatClient!.write(data, length: UInt(data.count))
+            let data = try encoder.encode(history)
+            let didWrite = chatClient!.write(data)
             return didWrite
 
         } catch {
@@ -193,7 +206,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         do {
             print("Now Sending Message: \(message.msg)")
            let data = try encoder.encode(message)
-            return chatClient!.write(data, length: UInt(data.count))
+            return chatClient!.write(data)
         } catch {
             print("Error Sending Message: \(error.localizedDescription)")
         }
@@ -308,6 +321,11 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
             parseJSONFromServer(json)
         }
    }
+
+    func clientDidConnect() {
+        downloadMessagesSinceLastTimeConnected()
+        sendOutgoingMessages()
+    }
     
     // MARK: Message History
     
@@ -344,7 +362,7 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     }
 
     @objc func testChatServerReachability() {
-        if self.isChatServerReachable() {
+        if (self.lastTimeConnected == nil) && self.isChatServerReachable() {
             self.setLastTimeConnectedToNow()
         }
     }
