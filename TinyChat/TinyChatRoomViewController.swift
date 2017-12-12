@@ -22,15 +22,9 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
             chatRoom = TinyChatRoom()
             chatRoom.delegate = self
             chatRoom.startCheckingReachability()
-            if chatRoom.chatClient!.connected {
-                
-//                chatRoom.downloadMessagesSinceLastTimeConnected()
- //               chatRoom.sendOutgoingMessages()
-           }
             
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(TinyChatRoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
