@@ -41,12 +41,9 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
 
         super.init()
         
-        
-        let time = Int(currentTime()) - Int(1000 * 60 * 60 * 1000)        // 1000 hours of messages
-        print("MAGIC TIME: \(time)")
-
-        setLastTimeConnected(time)                                         // TESTING
-
+//        let time = Int(currentTime()) - Int(24 * 60 * 60 * 1000)        // 10000 hours of messages
+//        print("MAGIC TIME: \(time)")
+//        setLastTimeConnected(time)                                         // TESTING
 
         self.chatClient?.delegate = self
         
