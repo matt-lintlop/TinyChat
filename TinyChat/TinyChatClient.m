@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void)connectToChatServer {
+- (Boolean)connectToChatServer {
     struct hostent *server;
     struct sockaddr_in serv_addr;
     
@@ -37,11 +37,13 @@
     self.sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (self.sockfd < 0) {
         perror("ERROR opening socket");
+        return false;
     }
     server = gethostbyname("52.91.109.76");
     if (server == NULL) {
         fprintf(stderr, "ERROR, no such host: %s\n", "52.91.109.76");
-    }
+        return false;
+   }
     printf("Resolved Host: %s\n", server->h_name);
     
     bzero((char*) &serv_addr, sizeof(serv_addr));
@@ -61,6 +63,7 @@
     }
       
     [self setNetworkActivityIndicatorVisible:NO];
+    return self.connected;
 }
 
 - (void)disconnect {
@@ -80,7 +83,15 @@
     }
     
     NSLog(@"Write Data Current Thread: %@", [NSThread currentThread]);
-    
+    /* Check the status again */
+    void *optval;
+    socklen_t *optlen;
+    if(getsockopt(self.sockfd, SOL_SOCKET, SO_KEEPALIVE, &optval, &optlen) < 0) {
+        perror("getsockopt()");
+        return false;
+    }
+    printf("SO_KEEPALIVE is %s\n", (optval ? "ON" : "OFF"));
+
     NSUInteger bytesRemaining = data.length;
     
     // Send the message to the TCP server.
