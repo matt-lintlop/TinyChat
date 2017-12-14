@@ -162,6 +162,7 @@
  }
 
 - (void)suspend {
+    
     if (!self.suspended) {
         self.suspended = TRUE;
     }
