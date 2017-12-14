@@ -82,19 +82,8 @@
         return NO;
     }
     
-    NSLog(@"Write Data Current Thread: %@", [NSThread currentThread]);
-    /* Check the status again */
-    void *optval;
-    socklen_t *optlen;
-    if(getsockopt(self.sockfd, SOL_SOCKET, SO_KEEPALIVE, &optval, &optlen) < 0) {
-        perror("getsockopt()");
-        return false;
-    }
-    printf("SO_KEEPALIVE is %s\n", (optval ? "ON" : "OFF"));
-
-    NSUInteger bytesRemaining = data.length;
-    
     // Send the message to the TCP server.
+    NSUInteger bytesRemaining = data.length;
     ssize_t n;
     do {
         n = write(self.sockfd, data.bytes, bytesRemaining);

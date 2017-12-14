@@ -16,7 +16,7 @@
 
 @interface TinyChatClient : NSOperation
 
-- (void)connectToChatServer;
+- (Boolean)connectToChatServer;
 - (void)disconnect;
 
 - (BOOL)writeData:(NSData*)data;
