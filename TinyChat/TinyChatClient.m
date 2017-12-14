@@ -69,6 +69,7 @@
 - (void)disconnect {
     if (self.connected) {
         if (self.sockfd != 0) {
+            shutdown(self.sockfd, SHUT_WR);
             close(self.sockfd);
             self.sockfd = 0;
             NSLog(@"Disconnected from the chat server");
@@ -151,7 +152,6 @@
  }
 
 - (void)suspend {
-    
     if (!self.suspended) {
         self.suspended = TRUE;
     }

@@ -68,6 +68,11 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
     }
 
     func teardownNetworkCommunication() {
+        if let chatClient = chatClient {
+            if chatClient.connected {
+                setLastTimeConnectedToNow()
+            }
+        }
         chatClient?.disconnect()
     }
     
@@ -203,7 +208,10 @@ class TinyChatRoom : NSObject, TinyChatClientDelegate {
         do {
             print("Now Sending Message: \(message.msg)")
            let data = try encoder.encode(message)
-           return chatClient!.write(data)
+           let didWrite = chatClient!.write(data)
+            if (didWrite) {
+                setLastTimeConnectedToNow()
+            }
         } catch {
             print("Error Sending Message: \(error.localizedDescription)")
         }
